@@ -1,0 +1,81 @@
+{
+  "name": "ias-gestion-api",
+  "version": "0.0.1",
+  "private": true,
+  "description": "",
+  "license": "UNLICENSED",
+  "main": "index.js",
+  "eslintConfig": "./eslintrc.js",
+  "scripts": {
+    "lint": "node_modules/.bin/eslint -c .eslintrc.js --ext .js ./",
+    "lintfix": "node_modules/.bin/eslint -c .eslintrc.js --fix --ext .js ./",
+    "snyk-test": "node_modules/.bin/snyk auth 5d196932-1d96-408d-8836-92558facddbb && node_modules/.bin/snyk test",
+    "start": "set DEBUG=ias-gestion-api:* && node index.js",
+    "test": "npm run lint && npm run snyk-test",
+    "test-mocha": "node_modules/.bin/mocha --timeout=1000"
+  },
+  "dependencies": {
+    "@bugsnag/js": "^6.5.2",
+    "@bugsnag/plugin-express": "^6.5.1",
+    "async": "^3.2.0",
+    "aws-sdk": "^2.632.0",
+    "bcrypt": "^4.0.1",
+    "body-parser": "^1.19.0",
+    "boom": "^7.3.0",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "connect-session-sequelize": "^6.1.1",
+    "cors": "^2.8.5",
+    "debug": "^4.1.1",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "express-jwt": "^5.3.1",
+    "express-session": "^1.17.0",
+    "fs": "0.0.2",
+    "helmet": "^3.21.3",
+    "http-errors": "^1.7.3",
+    "http-status-code": "^2.1.0",
+    "ias-utils": "^0.0.52",
+    "jsonwebtoken": "^8.5.1",
+    "juice": "^6.0.0",
+    "lodash": "^4.17.15",
+    "moment": "^2.24.0",
+    "multer": "^1.4.2",
+    "mysql2": "^2.1.0",
+    "node-fetch": "^2.6.0",
+    "passport": "^0.4.1",
+    "passport-facebook": "^3.0.0",
+    "passport-twitter": "^1.0.4",
+    "password-validator": "^5.0.3",
+    "randomatic": "^3.1.1",
+    "request-promise": "^4.2.5",
+    "sequelize": "^5.21.5",
+    "session-memory-store": "^1.0.0",
+    "snyk": "^1.298.0",
+    "uuidv4": "^6.0.5"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-security": "^1.4.0",
+    "husky": "^4.2.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test",
+      "pre-push": "npm test"
+    }
+  },
+  "engines": {
+    "node": ">= 10.17.0",
+    "npm": ">= 6.12.1"
+  },
+  "os": [
+    "darwin",
+    "linux",
+    "win32"
+  ],
+  "cpu": "x64"
+}
